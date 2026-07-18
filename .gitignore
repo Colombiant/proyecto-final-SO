@@ -1,0 +1,11 @@
+# Exclusiones de Git para el proyecto
+
+# Informes y documentos academicos
+INFORME.pdf
+INFORME.typ
+INFORME.md
+logo_univalle.svg
+OS_2026_PROJECT.pdf
+
+# Repositorio auxiliar original de control
+xv6-original/
