@@ -1,3 +1,8 @@
+// Prueba comparativa del planificador por defecto.
+// Spawnea 3 procesos hijos idénticos con la prioridad por defecto del sistema (10).
+// Sirve para comparar cómo se intercalan los procesos de igual prioridad en Round Robin.
+// Se puede ejecutar tanto en la version original como en la modificada para validar el fallback RR.
+
 #include "types.h"
 #include "stat.h"
 #include "user.h"
@@ -9,6 +14,7 @@ main(int argc, char *argv[])
 
   printf(1, "Iniciando test de comparacion de planificacion...\n");
 
+  // Crear Hijo 1
   pid1 = fork();
   if(pid1 == 0){
     volatile int i;
@@ -21,6 +27,7 @@ main(int argc, char *argv[])
     exit();
   }
 
+  // Crear Hijo 2
   pid2 = fork();
   if(pid2 == 0){
     volatile int i;
@@ -33,6 +40,7 @@ main(int argc, char *argv[])
     exit();
   }
 
+  // Crear Hijo 3
   pid3 = fork();
   if(pid3 == 0){
     volatile int i;
@@ -45,6 +53,7 @@ main(int argc, char *argv[])
     exit();
   }
 
+  // Esperar a que terminen los 3 procesos hijos
   wait();
   wait();
   wait();
